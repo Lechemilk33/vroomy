@@ -1,0 +1,79 @@
+name: Monorepo Lint, Format, and Auto-Push
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  autofix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # Install root dependencies
+      - name: Install root dependencies
+        run: npm ci
+
+      # Lint and format at root if scripts exist
+      - name: Lint and auto-fix (root)
+        run: |
+          if [ -f package.json ] && npm run | grep -q "lint"; then
+            npm run lint -- --fix || true
+          fi
+      - name: Format code (root)
+        run: |
+          if [ -f package.json ] && npm run | grep -q "format"; then
+            npm run format || true
+          fi
+
+      # Lint and format in client/
+      - name: Lint and auto-fix (client)
+        run: |
+          if [ -f client/package.json ]; then
+            cd client
+            npm ci
+            if npm run | grep -q "lint"; then
+              npm run lint -- --fix || true
+            fi
+            if npm run | grep -q "format"; then
+              npm run format || true
+            fi
+            cd ..
+          fi
+
+      # Lint and format in server/
+      - name: Lint and auto-fix (server)
+        run: |
+          if [ -f server/package.json ]; then
+            cd server
+            npm ci
+            if npm run | grep -q "lint"; then
+              npm run lint -- --fix || true
+            fi
+            if npm run | grep -q "format"; then
+              npm run format || true
+            fi
+            cd ..
+          fi
+
+      - name: Commit and push changes if needed
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          if ! git diff --cached --quiet; then
+            git commit -m "ci: automated lint/format fixes"
+            git push
+          fi
