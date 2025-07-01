@@ -1,0 +1,1 @@
+    model: "720S",  cross-env DATABASE_URL="postgresql://neondb_owner:npg_JzFL2rOc9VCk@ep-yellow-grass-a83om5vb-pooler.eastus2.azure.neon.tech/neondb?sslmode=require&channel_binding=require" tsx server/seed-db.ts

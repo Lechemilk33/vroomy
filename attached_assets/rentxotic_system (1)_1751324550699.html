@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RentXotic Operations System</title>
+    <style>
+        /* ===== PROFESSIONAL ENTERPRISE DESIGN SYSTEM ===== */
+        :root {
+            /* Professional Color Palette - Sophisticated & Enterprise */
+            --primary: #1a365d;
+            --primary-hover: #153c5f;
+            --primary-light: #2d3b47;
+            --accent: #d4af37;
+            --accent-hover: #b8941f;
+            
+            --success: #22c55e;
+            --success-hover: #16a34a;
+            --success-light: #dcfce7;
+            
+            --warning: #f59e0b;
+            --warning-hover: #d97706;
+            --warning-light: #fef3c7;
+            
+            --danger: #ef4444;
+            --danger-hover: #dc2626;
+            --danger-light: #fee2e2;
+            
+            /* Sophisticated Background System */
+            --bg-primary: #f8fafc;
+            --bg-surface: #ffffff;
+            --bg-overlay: #f1f5f9;
+            --bg-subtle: #f8fafc;
+            --bg-hover: #f1f5f9;
+            
+            /* Professional Typography Colors */
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --text-muted: #94a3b8;
+            --text-inverse: #ffffff;
+            
+            /* Premium Border System */
+            --border-color: #e2e8f0;
+            --border-hover: #cbd5e1;
+            --border-focus: #3b82f6;
+            --border-subtle: #f1f5f9;
+            
+            /* Professional Spacing Scale */
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-2xl: 3rem;
+            
+            /* Enterprise Typography */
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-family-mono: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+            --font-size-xs: 0.75rem;
+            --font-size-sm: 0.875rem;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.25rem;
+            --font-size-2xl: 1.5rem;
+            --font-size-3xl: 1.875rem;
+            
+            /* Professional Shadow System */
+            --shadow-xs: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+            
+            /* Modern Border Radius */
+            --radius-sm: 6px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            
+            /* Smooth Professional Transitions */
+            --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-normal: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* ===== PROFESSIONAL HEADER SYSTEM ===== */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: var(--text-inverse);
+            padding: var(--spacing-lg) var(--spacing-xl);
+            box-shadow: var(--shadow-lg);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: var(--font-size-3xl);
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            background: linear-gradient(45deg, #ffffff, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header-info {
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+            opacity: 0.9;
+            font-family: var(--font-family-mono);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-xl);
+        }
+
+        /* ===== PROFESSIONAL TAB SYSTEM ===== */
+        .tabs {
+            display: flex;
+            background: var(--bg-surface);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--spacing-2xl);
+            box-shadow: var(--shadow-sm);
+            overflow-x: auto;
+            border: 1px solid var(--border-color);
+            padding: 4px;
+        }
+
+        .tab {
+            flex: 1;
+            padding: var(--spacing-md) var(--spacing-xl);
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-weight: 600;
+            white-space: nowrap;
+            min-width: 140px;
+            transition: var(--transition-normal);
+            color: var(--text-secondary);
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-sm);
+            position: relative;
+        }
+
+        .tab:hover:not(.active) {
+            background: var(--bg-hover);
+            color: var(--text-primary);
+            transform: translateY(-1px);
+        }
+
+        .tab.active {
+            background: var(--primary);
+            color: var(--text-inverse);
+            box-shadow: var(--shadow-sm);
+            transform: translateY(-1px);
+        }
+
+        .tab-content {
+            display: none;
+            background: var(--bg-surface);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-2xl);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== GRID SYSTEMS ===== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .vehicle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        /* ===== PROFESSIONAL CARD COMPONENTS ===== */
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-2xl);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-normal);
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--border-hover);
+        }
+
+        .stat-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-2xl);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: block;
+            line-height: 1;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            margin-top: var(--spacing-sm);
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .vehicle-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-2xl);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vehicle-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            opacity: 0;
+            transition: var(--transition-normal);
+        }
+
+        .vehicle-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .vehicle-card:hover::before {
+            opacity: 1;
+        }
+
+        /* ===== PROFESSIONAL FORM SYSTEM ===== */
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-primary);
+            font-size: var(--font-size-sm);
+            letter-spacing: 0.025em;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: var(--spacing-md);
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-sm);
+            transition: var(--transition-normal);
+            background: var(--bg-surface);
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(26, 54, 93, 0.1);
+            background: var(--bg-surface);
+        }
+
+        .form-control:hover:not(:focus) {
+            border-color: var(--border-hover);
+        }
+
+        /* ===== PROFESSIONAL BUTTON SYSTEM ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: var(--spacing-sm) var(--spacing-lg);
+            background: var(--primary);
+            color: var(--text-inverse);
+            border: none;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            margin: var(--spacing-xs) var(--spacing-xs) 0 0;
+            transition: var(--transition-normal);
+            text-decoration: none;
+            gap: var(--spacing-xs);
+            border: 2px solid transparent;
+            box-shadow: var(--shadow-xs);
+            letter-spacing: 0.025em;
+        }
+
+        .btn:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+        }
+
+        .btn-success {
+            background: var(--success);
+            border-color: transparent;
+        }
+
+        .btn-success:hover {
+            background: var(--success-hover);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-danger {
+            background: var(--danger);
+            border-color: transparent;
+        }
+
+        .btn-danger:hover {
+            background: var(--danger-hover);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-sm {
+            padding: 0.5rem 1rem;
+            font-size: var(--font-size-xs);
+            font-weight: 600;
+        }
+
+        /* ===== PROFESSIONAL STATUS SYSTEM ===== */
+        .status-badge {
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-xs);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border: 2px solid transparent;
+            backdrop-filter: blur(8px);
+        }
+
+        .status-available {
+            background: var(--success-light);
+            color: var(--success-hover);
+            border-color: var(--success);
+        }
+
+        .status-rented {
+            background: #dbeafe;
+            color: #1e40af;
+            border-color: #3b82f6;
+        }
+
+        .status-maintenance {
+            background: var(--warning-light);
+            color: var(--warning-hover);
+            border-color: var(--warning);
+        }
+
+        .status-pending {
+            background: var(--warning-light);
+            color: var(--warning-hover);
+            border-color: var(--warning);
+        }
+
+        .status-completed {
+            background: var(--success-light);
+            color: var(--success-hover);
+            border-color: var(--success);
+        }
+
+        /* ===== VEHICLE SPECIFIC ===== */
+        .vehicle-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .vehicle-name {
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .vehicle-details {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+            margin-top: var(--spacing-xs);
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: var(--spacing-sm);
+            font-size: var(--font-size-sm);
+        }
+
+        .detail-label {
+            color: var(--text-secondary);
+        }
+
+        .detail-value {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .fuel-bar {
+            width: 100%;
+            height: 6px;
+            background: var(--border-color);
+            border-radius: 3px;
+            overflow: hidden;
+            margin: var(--spacing-sm) 0;
+        }
+
+        .fuel-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: var(--transition-slow);
+        }
+
+        .issue-flag {
+            display: inline-block;
+            background: #fed7d7;
+            color: #c53030;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin: var(--spacing-xs) var(--spacing-xs) 0 0;
+        }
+
+        /* ===== TASK COMPONENTS ===== */
+        .task-item {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-normal);
+        }
+
+        .task-item:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--border-hover);
+        }
+
+        .task-item.priority-urgent {
+            border-left: 4px solid var(--danger);
+        }
+
+        .task-item.priority-high {
+            border-left: 4px solid var(--warning);
+        }
+
+        .task-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .task-title {
+            font-weight: 600;
+            font-size: var(--font-size-base);
+            color: var(--text-primary);
+        }
+
+        .task-meta {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .task-details {
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-md);
+            font-size: var(--font-size-sm);
+        }
+
+        .task-actions {
+            display: flex;
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
+        }
+
+        /* ===== PROFESSIONAL ALERT SYSTEM ===== */
+        .alert {
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            border: 2px solid;
+            margin-bottom: var(--spacing-lg);
+            font-weight: 500;
+            backdrop-filter: blur(8px);
+        }
+
+        .alert-success {
+            background: var(--success-light);
+            color: var(--success-hover);
+            border-color: var(--success);
+        }
+
+        .alert-warning {
+            background: var(--warning-light);
+            color: var(--warning-hover);
+            border-color: var(--warning);
+        }
+
+        .alert-info {
+            background: var(--bg-overlay);
+            color: var(--text-secondary);
+            border-color: var(--border-color);
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+                text-align: center;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .vehicle-grid,
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .container {
+                padding: var(--spacing-md);
+            }
+        }
+
+        /* ===== UTILITY CLASSES ===== */
+        .text-center { text-align: center; }
+        .text-sm { font-size: var(--font-size-sm); }
+        .text-muted { color: var(--text-muted); }
+        .mb-sm { margin-bottom: var(--spacing-sm); }
+        .mb-md { margin-bottom: var(--spacing-md); }
+        .mb-lg { margin-bottom: var(--spacing-lg); }
+        .mt-sm { margin-top: var(--spacing-sm); }
+        .mt-md { margin-top: var(--spacing-md); }
+        .mt-lg { margin-top: var(--spacing-lg); }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <h1>RentXotic Operations System</h1>
+            <div class="header-info">
+                <span id="current-time"></span> • La Jolla, CA • Operator: Ryan
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('dashboard')">Dashboard</button>
+            <button class="tab" onclick="showTab('fleet')">Fleet Status</button>
+            <button class="tab" onclick="showTab('tasks')">Tasks</button>
+            <button class="tab" onclick="showTab('fuel')">Fuel</button>
+            <button class="tab" onclick="showTab('reports')">Reports</button>
+        </div>
+
+        <!-- Dashboard -->
+        <div id="dashboard" class="tab-content active">
+            <h2 class="mb-lg">Operations Dashboard</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number" id="available-count">0</span>
+                    <div class="stat-label">Available</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="rented-count">0</span>
+                    <div class="stat-label">Currently Rented</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="maintenance-count">0</span>
+                    <div class="stat-label">In Maintenance</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="issues-count">0</span>
+                    <div class="stat-label">Need Attention</div>
+                </div>
+            </div>
+
+            <div id="dashboard-alert"></div>
+        </div>
+
+        <!-- Fleet Status -->
+        <div id="fleet" class="tab-content">
+            <h2 class="mb-lg">Fleet Status</h2>
+            <p class="text-muted mb-xl">Real-time status of all 23 RentXotic vehicles</p>
+            
+            <div id="vehicle-grid" class="vehicle-grid"></div>
+        </div>
+
+        <!-- Tasks -->
+        <div id="tasks" class="tab-content">
+            <h2 class="mb-lg">Task Management</h2>
+            
+            <!-- Add Task Form -->
+            <div class="card mb-xl">
+                <h3 class="mb-md">Add New Task</h3>
+                
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">Vehicle</label>
+                        <select id="task-vehicle" class="form-control">
+                            <option value="">Select Vehicle...</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Task Type</label>
+                        <select id="task-type" class="form-control">
+                            <option value="">Select Task...</option>
+                            <option value="wash">Wash & Detail</option>
+                            <option value="delivery">Delivery</option>
+                            <option value="pickup">Pickup</option>
+                            <option value="service">Service/Maintenance</option>
+                            <option value="fuel">Fuel Up</option>
+                            <option value="inspection">Inspection</option>
+                            <option value="photos">Photo Update</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Priority</label>
+                        <select id="task-priority" class="form-control">
+                            <option value="normal">Normal</option>
+                            <option value="high">High Priority</option>
+                            <option value="urgent">URGENT</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Assigned To</label>
+                        <select id="task-assignee" class="form-control">
+                            <option value="Ryan">Ryan (You)</option>
+                            <option value="Manager 1">Manager 1</option>
+                            <option value="Manager 2">Manager 2</option>
+                            <option value="Team Member">Team Member</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group mb-md">
+                    <label class="form-label">Task Details</label>
+                    <textarea id="task-details" class="form-control" rows="3" placeholder="Enter task details, special instructions, locations, etc..."></textarea>
+                </div>
+                
+                <button class="btn" onclick="addTask()">Add Task</button>
+                <button class="btn btn-success" onclick="exportTasks()">Export Tasks</button>
+            </div>
+            
+            <!-- Task List -->
+            <div>
+                <h3 class="mb-md">Active Tasks</h3>
+                <div id="task-list"></div>
+            </div>
+        </div>
+
+        <div id="fuel" class="tab-content">
+            <h2 class="mb-lg">Fuel Manager</h2>
+            <p class="text-muted">Fuel management will be added in Chunk 3</p>
+        </div>
+
+        <div id="reports" class="tab-content">
+            <h2 class="mb-lg">Reports</h2>
+            <p class="text-muted">Reports will be added in Chunk 4</p>
+        </div>
+    </div>
+
+    <script>
+        // RentXotic Fleet Data - All 23 vehicles from your website
+        const vehicles = [
+            { name: "Ferrari 488 Spider", type: "Convertible", color: "Red" },
+            { name: "Ferrari 488 Coupe", type: "Coupe", color: "Red" },
+            { name: "Ferrari California T", type: "Convertible", color: "Silver" },
+            { name: "Lamborghini Huracan Evo Spyder", type: "Convertible", color: "Orange" },
+            { name: "Lamborghini Huracan Evo Coupe", type: "Coupe", color: "Green" },
+            { name: "Lamborghini Huracan Spyder", type: "Convertible", color: "Yellow" },
+            { name: "Lamborghini Widebody Urus (Black)", type: "SUV", color: "Black" },
+            { name: "Lamborghini Widebody Urus (Yellow)", type: "SUV", color: "Yellow" },
+            { name: "McLaren 600LT Spider", type: "Convertible", color: "Orange" },
+            { name: "McLaren 570s Spider", type: "Convertible", color: "Blue" },
+            { name: "Aston Martin Vantage (Blue)", type: "Coupe", color: "Blue" },
+            { name: "Aston Martin Vantage (Silver)", type: "Coupe", color: "Silver" },
+            { name: "Porsche 911 Carrera 4S", type: "Coupe", color: "White" },
+            { name: "Porsche 911 Carrera S", type: "Coupe", color: "Black" },
+            { name: "BMW M4 Competition", type: "Coupe", color: "Blue" },
+            { name: "Mercedes AMG GT C Roadster", type: "Convertible", color: "Silver" },
+            { name: "Mercedes G550 (G-Wagon)", type: "SUV", color: "Black" },
+            { name: "Mercedes GLB 250", type: "SUV", color: "White" },
+            { name: "Corvette C8 (Orange)", type: "Coupe", color: "Orange" },
+            { name: "Corvette C8 (Red)", type: "Coupe", color: "Red" },
+            { name: "Audi R8 V10", type: "Coupe", color: "Red" },
+            { name: "Audi SQ8", type: "SUV", color: "Black" },
+            { name: "Maserati Ghibli", type: "Sedan", color: "Blue" }
+        ];
+
+        // Vehicle status data
+        let vehicleData = {};
+        
+        // Task management data
+        let tasks = [];
+        let taskIdCounter = 1;
+
+        // Initialize the system
+        function init() {
+            setupVehicleData();
+            updateDateTime();
+            setInterval(updateDateTime, 1000);
+            renderVehicles();
+            updateStats();
+            populateTaskVehicleDropdown();
+            renderTasks();
+        }
+
+        // Set up initial vehicle data
+        function setupVehicleData() {
+            vehicles.forEach((vehicle, index) => {
+                vehicleData[vehicle.name] = {
+                    status: index < 3 ? 'rented' : (index < 6 ? 'maintenance' : 'available'),
+                    fuelLevel: Math.floor(Math.random() * 101),
+                    condition: ['excellent', 'good', 'fair'][Math.floor(Math.random() * 3)],
+                    location: index % 3 === 0 ? 'La Jolla Office' : 'Customer Location',
+                    mileage: Math.floor(5000 + Math.random() * 15000),
+                    issues: index === 1 ? ['Low Fuel'] : (index === 4 ? ['Service Due'] : [])
+                };
+            });
+        }
+
+        // Update time display
+        function updateDateTime() {
+            document.getElementById('current-time').textContent = new Date().toLocaleTimeString();
+        }
+
+        // Tab switching
+        function showTab(tabId) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected tab
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Render vehicle grid
+        function renderVehicles() {
+            const grid = document.getElementById('vehicle-grid');
+            
+            grid.innerHTML = vehicles.map(vehicle => {
+                const data = vehicleData[vehicle.name];
+                const fuelColor = data.fuelLevel >= 75 ? '#38a169' : 
+                                 data.fuelLevel >= 50 ? '#d69e2e' : 
+                                 data.fuelLevel >= 25 ? '#ed8936' : '#e53e3e';
+                
+                return `
+                    <div class="vehicle-card">
+                        <div class="vehicle-header">
+                            <div>
+                                <div class="vehicle-name">${vehicle.name}</div>
+                                <div class="vehicle-details">${vehicle.type} • ${vehicle.color}</div>
+                            </div>
+                            <div class="status-badge status-${data.status}">
+                                ${data.status.toUpperCase()}
+                            </div>
+                        </div>
+                        
+                        <div class="detail-row">
+                            <span class="detail-label">Location:</span>
+                            <span class="detail-value">${data.location}</span>
+                        </div>
+                        
+                        <div class="detail-row">
+                            <span class="detail-label">Condition:</span>
+                            <span class="detail-value">${data.condition.toUpperCase()}</span>
+                        </div>
+                        
+                        <div class="detail-row">
+                            <span class="detail-label">Fuel Level:</span>
+                            <span class="detail-value" style="color: ${fuelColor}; font-weight: 600;">
+                                ${data.fuelLevel}%
+                            </span>
+                        </div>
+                        
+                        <div class="fuel-bar">
+                            <div class="fuel-fill" style="width: ${data.fuelLevel}%; background: ${fuelColor};"></div>
+                        </div>
+                        
+                        <div class="detail-row">
+                            <span class="detail-label">Mileage:</span>
+                            <span class="detail-value">${data.mileage.toLocaleString()} miles</span>
+                        </div>
+                        
+                        ${data.issues.length > 0 ? `
+                            <div class="mt-md">
+                                ${data.issues.map(issue => `<span class="issue-flag">${issue}</span>`).join('')}
+                            </div>
+                        ` : ''}
+                        
+                        <div class="mt-md">
+                            <button class="btn" onclick="updateStatus('${vehicle.name}')">Update Status</button>
+                            <button class="btn btn-success" onclick="markReady('${vehicle.name}')">Mark Ready</button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Update dashboard stats
+        function updateStats() {
+            const available = Object.values(vehicleData).filter(v => v.status === 'available').length;
+            const rented = Object.values(vehicleData).filter(v => v.status === 'rented').length;
+            const maintenance = Object.values(vehicleData).filter(v => v.status === 'maintenance').length;
+            const issues = Object.values(vehicleData).filter(v => v.issues.length > 0).length;
+            
+            document.getElementById('available-count').textContent = available;
+            document.getElementById('rented-count').textContent = rented;
+            document.getElementById('maintenance-count').textContent = maintenance;
+            document.getElementById('issues-count').textContent = issues;
+
+            // Show alert if issues exist
+            const alertDiv = document.getElementById('dashboard-alert');
+            if (issues > 0) {
+                const vehiclesWithIssues = vehicles.filter(v => vehicleData[v.name].issues.length > 0);
+                alertDiv.innerHTML = `
+                    <div class="alert alert-warning">
+                        <strong>Attention Required:</strong> ${issues} vehicle(s) need attention - 
+                        ${vehiclesWithIssues.map(v => v.name).join(', ')}
+                    </div>
+                `;
+            } else {
+                alertDiv.innerHTML = `
+                    <div class="alert alert-success">
+                        <strong>Fleet Status:</strong> All vehicles operating normally
+                    </div>
+                `;
+            }
+        }
+
+        // Update vehicle status
+        function updateStatus(vehicleName) {
+            const newStatus = prompt(`Update ${vehicleName} status:\n\nOptions: available, rented, maintenance`);
+            if (newStatus && ['available', 'rented', 'maintenance'].includes(newStatus)) {
+                vehicleData[vehicleName].status = newStatus;
+                renderVehicles();
+                updateStats();
+                alert(`${vehicleName} status updated to ${newStatus}`);
+            }
+        }
+
+        // Mark vehicle as ready
+        function markReady(vehicleName) {
+            vehicleData[vehicleName].status = 'available';
+            vehicleData[vehicleName].condition = 'excellent';
+            vehicleData[vehicleName].issues = [];
+            renderVehicles();
+            updateStats();
+            alert(`${vehicleName} marked as ready for rental!`);
+        }
+
+        // ===== TASK MANAGEMENT FUNCTIONS =====
+
+        // Populate task vehicle dropdown
+        function populateTaskVehicleDropdown() {
+            const select = document.getElementById('task-vehicle');
+            select.innerHTML = '<option value="">Select Vehicle...</option>';
+            
+            vehicles.forEach(vehicle => {
+                const option = document.createElement('option');
+                option.value = vehicle.name;
+                option.textContent = vehicle.name;
+                select.appendChild(option);
+            });
+        }
+
+        // Add new task
+        function addTask() {
+            const vehicle = document.getElementById('task-vehicle').value;
+            const type = document.getElementById('task-type').value;
+            const priority = document.getElementById('task-priority').value;
+            const assignee = document.getElementById('task-assignee').value;
+            const details = document.getElementById('task-details').value;
+
+            if (!vehicle || !type) {
+                alert('Please select a vehicle and task type');
+                return;
+            }
+
+            const task = {
+                id: taskIdCounter++,
+                vehicle: vehicle,
+                type: type,
+                priority: priority,
+                assignee: assignee,
+                details: details,
+                status: 'pending',
+                created: new Date().toLocaleString(),
+                completed: null
+            };
+
+            tasks.unshift(task);
+            clearTaskForm();
+            renderTasks();
+            alert('Task added successfully!');
+        }
+
+        // Clear task form
+        function clearTaskForm() {
+            document.getElementById('task-vehicle').value = '';
+            document.getElementById('task-type').value = '';
+            document.getElementById('task-priority').value = 'normal';
+            document.getElementById('task-assignee').value = 'Ryan';
+            document.getElementById('task-details').value = '';
+        }
+
+        // Render task list
+        function renderTasks() {
+            const container = document.getElementById('task-list');
+            
+            if (tasks.length === 0) {
+                container.innerHTML = `
+                    <div class="alert alert-info text-center">
+                        No tasks yet. Add your first task above!
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = tasks.map(task => `
+                <div class="task-item priority-${task.priority}">
+                    <div class="task-header">
+                        <div class="task-title">${task.vehicle} - ${getTaskTypeLabel(task.type)}</div>
+                        <div class="status-badge status-${task.status}">${task.status.toUpperCase()}</div>
+                    </div>
+                    
+                    <div class="task-meta">
+                        <span><strong>Assigned to:</strong> ${task.assignee}</span> • 
+                        <span><strong>Priority:</strong> ${task.priority.toUpperCase()}</span> • 
+                        <span><strong>Created:</strong> ${task.created}</span>
+                        ${task.completed ? ` • <strong>Completed:</strong> ${task.completed}` : ''}
+                    </div>
+                    
+                    ${task.details ? `<div class="task-details">${task.details}</div>` : ''}
+                    
+                    <div class="task-actions">
+                        ${task.status === 'pending' ? `
+                            <button class="btn btn-sm btn-success" onclick="completeTask(${task.id})">Complete</button>
+                        ` : ''}
+                        <button class="btn btn-sm btn-danger" onclick="deleteTask(${task.id})">Delete</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Get task type label
+        function getTaskTypeLabel(type) {
+            const labels = {
+                'wash': 'Wash & Detail',
+                'delivery': 'Delivery',
+                'pickup': 'Pickup',
+                'service': 'Service/Maintenance',
+                'fuel': 'Fuel Up',
+                'inspection': 'Inspection',
+                'photos': 'Photo Update',
+                'other': 'Other'
+            };
+            return labels[type] || type;
+        }
+
+        // Complete task
+        function completeTask(taskId) {
+            const task = tasks.find(t => t.id === taskId);
+            if (task) {
+                task.status = 'completed';
+                task.completed = new Date().toLocaleString();
+                renderTasks();
+                alert('Task marked as completed!');
+            }
+        }
+
+        // Delete task
+        function deleteTask(taskId) {
+            if (confirm('Are you sure you want to delete this task?')) {
+                tasks = tasks.filter(t => t.id !== taskId);
+                renderTasks();
+                alert('Task deleted');
+            }
+        }
+
+        // Export tasks to CSV
+        function exportTasks() {
+            if (tasks.length === 0) {
+                alert('No tasks to export');
+                return;
+            }
+
+            const headers = ['Vehicle', 'Task Type', 'Priority', 'Assignee', 'Details', 'Status', 'Created', 'Completed'];
+            const csvContent = [
+                headers.join(','),
+                ...tasks.map(task => [
+                    task.vehicle,
+                    getTaskTypeLabel(task.type),
+                    task.priority,
+                    task.assignee,
+                    `"${task.details.replace(/"/g, '""')}"`,
+                    task.status,
+                    task.created,
+                    task.completed || 'N/A'
+                ].join(','))
+            ].join('\n');
+
+            const blob = new Blob([csvContent], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `rentxotic-tasks-${new Date().toISOString().split('T')[0]}.csv`;
+            a.click();
+            window.URL.revokeObjectURL(url);
+            
+            alert('Tasks exported successfully!');
+        }
+
+        // Start the system when page loads
+        window.addEventListener('load', init);
+    </script>
+</body>
+</html>
